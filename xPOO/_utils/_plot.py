@@ -54,7 +54,6 @@ def _2Dplot(X, xvec, yvec, title='', xlabel='', ylabel='', cmap='viridis',
             cblabel='', maxplot=10, interp=(1, 1), **kwargs):
     """Simple 2D plot"""
     def _sub2Dplot(X):
-        print(X.shape)
         if (interp[0], interp[1]) != (1, 1):
             X, xV, yV = mapinterpolation(X, x=xvec, y=yvec, interpx=interp[1],
                                          interpy=interp[0])
@@ -62,7 +61,6 @@ def _2Dplot(X, xvec, yvec, title='', xlabel='', ylabel='', cmap='viridis',
             xV, yV = xvec, yvec
         im = plt.imshow(X, cmap=cmap, aspect='auto', extent=[xV[
             0], xV[-1], yV[-1], yV[0]], **kwargs)
-        print(X.shape)
         ax = plt.gca()
         ax.set_xlabel(xlabel), ax.set_ylabel(ylabel)
         ax.set_title(title)
